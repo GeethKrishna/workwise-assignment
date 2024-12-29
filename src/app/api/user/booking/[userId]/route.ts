@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkauth } from "@/lib/authHelper";
 
 // Get User Bookings Handler
-export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ userId: string }> }) {
     const session = await checkauth();
     if (!session) {
         return NextResponse.json(
