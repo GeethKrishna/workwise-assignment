@@ -40,7 +40,7 @@ const useUserStore = create<UserState>()(
         try {
           set({ userLoading: true, error: null })
           
-          const response = await fetch(`/api/user/${userDetails.id}/bookings`,
+          const response = await fetch(`/api/user/booking/${userDetails.id}`,
             {
               method: 'GET'
             },
